@@ -22,3 +22,12 @@ git branch -M main
 git remote add origin https://github.com/Esteban-Hoyos/IA344.git
 git push -u origin main
 ```
+
+### Atajos
+
+```
+Alt + shif + flecha --- Copiar la linea 
+Alt + shif + a --- Comentarios
+
+
+```
