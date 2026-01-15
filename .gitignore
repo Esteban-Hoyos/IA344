@@ -1,0 +1,5 @@
+# Ignoramos carpeta profesores de raíz
+/IAG344Profesores 
+
+#Ignoramos el entorno virtual
+Mision1/Proyect01/env3.13.1/
