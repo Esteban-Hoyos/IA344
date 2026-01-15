@@ -1,0 +1,35 @@
+
+/* Estilo toda la página */
+ *{
+    margin: 0; /* quitar margenes por defecto */
+    padding: 0; /* quita rellenos por defecto */
+}
+/* Estilo header */
+.header{
+    background: #111827;
+    color: white; /* Color letra */
+    padding: 16px 24px; /* Espacio interno */
+    display: flex; /* Logo y menú de fila */
+    align-items: center; /* Alinear elementos en fila */
+    justify-content: space-between; /* Separa a la izquiera y a la derecha  */
+
+}
+
+/* Estilo título web */
+.nombre{
+    font-size: 22px; /* Tamaño en píxeles */ 
+}
+
+/* Enlaces del menú */
+.nav-link{
+    color: white;
+    text-decoration: none; /* Quita subrayado */
+    margin-left: 12px; /* Espacio entre links */
+    opacity: 0.85; /* Color más suave */
+}
+.nav-link:hover{
+    opacity: 1;
+    text-decoration: underline;
+    color:bisque;
+    background-color: rgb(147, 205, 205);
+}

@@ -7,6 +7,7 @@ python --version
 cd (Para ubicarse en carpetas y archivos)
 Dir (para desplegar la lista de carpetas y archivos)
 python -m venv env3.13.1 (Crear entorno virtual)
+deactivate (cerrar entorno virtual)
 ```
 
 ### Comandos git
