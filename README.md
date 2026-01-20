@@ -44,6 +44,7 @@ Windows + . --- emogis
 Alt + ctrl + flecha ---
 Ctrl + shif + p --- Paleta de comandos (sirve para que escribiendo una palabra salga una seleción nuestra)
 shif + alt + c(copiar ruta de acceso a la carpeta)
+ctrl + h
 
 ```
 
