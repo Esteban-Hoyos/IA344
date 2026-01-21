@@ -13,8 +13,9 @@ python -m venv env3.13.1 (Crear entorno virtual)
 ```
 env3.13.1/scripts/activate (Activar entorno virtual)
 deactivate (cerrar entorno virtual)
-python.exe -m pip install --upgrade pip
-pip install pytest
+
+python.exe -m pip install --upgrade pip -- actualizar pip
+pip install -r nombre del archivo
 pip list
 ```
 
