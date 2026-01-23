@@ -1,46 +1,4 @@
-# Importaciones
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
-
-# Función para construir y entrenar el modelo con pares pregunta-respuesta
-def build_and_train_model(train_pairs):
-    # train_pairs: lista de pares (pregunta, respuesta)
-    questions = [q for q, _ in train_pairs]  # Lista de preguntas
-    answers = [a for _, a in train_pairs]    # Lista de respuestas
-
-    # Crear el vectorizador para traducir texto a números
-    vectorizer = CountVectorizer()
-
-    # Entrenamiento del vectorizador con las preguntas
-    x = vectorizer.fit_transform(questions)
-
-    # Obtenemos respuestas únicas y las etiquetamos
-    unique_answers = sorted(set(answers))
-    answers_to_labels = {a: i for i, a in enumerate(unique_answers)}
-
-    # Creamos las etiquetas numéricas para las respuestas
-    y = [answers_to_labels[a] for a in answers]
-
-    # Modelo de clasificación
-    model = MultinomialNB()
-    model.fit(x, y)
-    return model, vectorizer, unique_answers
-
-# Función para predecir la respuesta
-def predict_answer(model, vectorizer, unique_answers, user_text):
-    # Vectorizar la entrada del usuario
-    x = vectorizer.transform([user_text])
-
-    # Predecir la etiqueta
-    label = model.predict(x)[0]
-
-    # Devolver la respuesta correspondiente
-    return unique_answers[label]
-
-# Programa principal
-if __name__ == "__main__":
-    # Datos de entrenamiento ampliados para tu negocio
-    training_data = [
+training_data = [
         # Saludos
         ("Hola", "¡Hola! Bienvenido a Sublimados Esteban. ¿En qué puedo ayudarte con camisas o gorras?"),
         ("Buenas tardes", "¡Hola! Bienvenido a Sublimados Esteban. ¿En qué puedo ayudarte con camisas o gorras?"),
@@ -85,17 +43,3 @@ if __name__ == "__main__":
         ("Precio camisa", "Una camisa sublimada cuesta $20.000 COP."),
         ("Comprar gorras", "Genial. ¿Qué diseño? ¿Cantidad? Te guío: envía detalles y confirmo stock."),
     ]
-
-    # Entrenar el modelo
-    model, vectorizer, unique_answers = build_and_train_model(training_data)
-
-    # Mensaje inicial
-    print("Chatbot de Sublimados Esteban: ¡Hola! Soy tu asistente para pedidos. Escribe 'salir' para terminar.\n")
-    while True:
-        # Input del usuario
-        user = input("Tú: ")
-        if user.lower() in {"salir", "exit", "quit", "adiós"}:
-            print("Chatbot: ¡Adiós! Esperamos tu pedido pronto.")
-            break
-        response = predict_answer(model, vectorizer, unique_answers, user)
-        print("Chatbot:", response)
